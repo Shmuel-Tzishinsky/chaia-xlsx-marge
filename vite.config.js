@@ -5,5 +5,5 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   plugins: [react()],
 
-  base: "/haia-xlsx-marge/", // הוסף כאן את שם המאגר שלך
+  base: "/chaia-xlsx-marge/",
 });
