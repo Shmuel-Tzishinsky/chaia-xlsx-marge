@@ -268,7 +268,7 @@ function App() {
       }
     }
 
-    XLSX.utils.book_append_sheet(workbook, worksheet2, "ללא התאמה מהקובץ הראשון");
+    XLSX.utils.book_append_sheet(workbook, worksheet2, "ללא התאמה מהקובץ הנהלת חשבונות");
 
     // כתיבת הקובץ והורדתו
     const xlsxData = XLSX.write(workbook, { bookType: "xlsx", type: "array" });
