@@ -1,5 +1,5 @@
 {
-  "homepage": "https://Shmuel-Tzishinsky.github.io/haia-xlsx-marge",
+  "homepage": "https://Shmuel-Tzishinsky.github.io/haia-xlsx-marge/",
   "name": "vite-project",
   "private": true,
   "version": "0.0.0",
@@ -10,7 +10,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "file-saver": "^2.0.5",
