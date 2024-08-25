@@ -127,7 +127,9 @@ function App() {
     const unmatchedData1 = [];
 
     data1.forEach((row1) => {
-      const matchedRow = data2.find((row2) => row2[idKey2] === row1[idKey1]);
+      const matchedRow = data2.find((row2) => {
+        return cleanString(row2[idKey2]?.toString()) === cleanString(row1[idKey1]?.toString());
+      });
       if (matchedRow) {
         matchedRows.push({ ...matchedRow, "מפתח חשבון": row1["מפתח חשבון"] });
       } else {
@@ -139,6 +141,8 @@ function App() {
   };
 
   const cleanString = (str) => {
+    if (str == undefined) return undefined;
+
     return str
       .replaceAll(" ", "")
       .replaceAll("\r", "")
@@ -252,7 +256,6 @@ function App() {
 
     // יצירת גליון ראשון לנתונים הממוזגים
     const worksheet1 = XLSX.utils.json_to_sheet(updatedDataFromFile2);
-    console.log("🚀 ~ handleExport ~ worksheet1:", worksheet1);
     worksheet1["!dir"] = "rtl"; // הגדרת כיוון הגיליון מימין לשמאל
 
     XLSX.utils.book_append_sheet(workbook, worksheet1, "נתונים ממוזגים");
@@ -308,7 +311,6 @@ function App() {
               type="file"
               accept=".xlsx"
               onChange={(e) => {
-                console.log("🚀 ~ App ~ e:", e);
                 document.querySelector(".file-return-1").innerHTML = e.target.value;
 
                 setFile2(e.target.files[0]);
